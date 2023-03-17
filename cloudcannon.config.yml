@@ -1,3 +1,14 @@
 # CloudCannon Global Configuration
 # https://cloudcannon.com/documentation/articles/setting-global-configuration/
 
+_inputs:
+  # Tell CloudCannon to generate a unique UUID when encountering
+  # a _uuid field during the creation of a new file
+  _uuid:
+    instance_value: UUID
+
+  related_items:
+    type: multiselect
+    options:
+      values: collections.docs
+      value_key: _uuid
