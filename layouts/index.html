@@ -1,0 +1,30 @@
+{{ define "main" }}
+    <h1>Docs</h1>
+    <ul>
+        {{ range where .Site.Pages "Section" "docs" }}
+            {{ if .Params.title }}
+                <li>
+                    <a href="{{ .Permalink | relURL }}">{{ .Params.title }}</a>
+                </li>
+            {{ end }}
+        {{ end }}
+    </ul>
+
+    <h1>Posts</h1>
+    <ul>
+        {{ range where .Site.Pages "Section" "posts" }}
+            {{ if .Params.title }}
+                <li>
+                    <a href="{{ .Permalink | relURL }}">{{ .Params.title }}</a>
+                </li>
+            {{ end }}
+        {{ end }}
+    </ul>
+
+    <h1>Authors</h1>
+    <ul>
+        {{ range site.Data.authors.authors }}
+            <li> {{ . }} </li>
+        {{ end }}
+    </ul>
+{{ end }}
