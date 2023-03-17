@@ -1,3 +1,10 @@
 # CloudCannon Global Configuration
 # https://cloudcannon.com/documentation/articles/setting-global-configuration/
 
+_inputs:
+  doc_type:
+    type: select
+    options:
+      values:
+        - reference
+        - guide
