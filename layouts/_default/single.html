@@ -1,4 +1,17 @@
 {{ define "main" }}
     <h1>{{ .Params.title }}</h1>
     {{ .Content | safeHTML }}
+
+    {{ with .Params.related_items }}
+        <h2>Related Items</h2>
+        <ul>
+        {{ range . }}
+            {{ with site.GetPage . }}
+                <li>
+                    <a href="{{ .Permalink | relURL }}">{{ .Params.title }}</a>
+                </li>
+            {{ end }}
+        {{ end }}
+        </ul>
+    {{ end }}
 {{ end }}
