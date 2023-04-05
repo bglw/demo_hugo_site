@@ -1,3 +1,19 @@
 # CloudCannon Global Configuration
 # https://cloudcannon.com/documentation/articles/setting-global-configuration/
 
+# Allow CloudCannon to read the categories data from Hugo in the CMS,
+# so that multiselect inputs can use it as a data source:
+data_config:
+  categories: true
+
+# Create an input that selects values from the categories data set
+_inputs:
+  categories:
+    type: multiselect
+    options:
+      values: data.categories
+      # Allow new values to be typed into the input without
+      # existing in the categories data set.
+      # The .cloudcannon/prebuild script will then find these
+      # next build and add them to the data set so they can be selected.
+      allow_create: true

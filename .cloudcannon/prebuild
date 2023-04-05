@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Create the categories.json data file before each build:
+npx -y @cloudcannon/data-extractor content/docs -r -s '$.categories' > data/categories.json
