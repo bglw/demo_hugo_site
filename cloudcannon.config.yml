@@ -1,3 +1,8 @@
 # CloudCannon Global Configuration
 # https://cloudcannon.com/documentation/articles/setting-global-configuration/
 
+commit_templates:
+  - template_string: "{message|trim}"
+    _inputs:
+      message:
+        comment: "This comment will be shown below the input when users save changes"
