@@ -1,8 +1,11 @@
-# CloudCannon Global Configuration
-# https://cloudcannon.com/documentation/articles/setting-global-configuration/
-
 commit_templates:
-  - template_string: "{message|trim}"
+  - label: Commit message with Ref
+    template_string: 'Ref #{gitlab_ref}: {message|trim}'
     _inputs:
       message:
-        comment: "This comment will be shown below the input when users save changes"
+        comment: This comment will be shown above the input when users save changes
+  - label: Custom commit message
+    template_string: '{message|trim}'
+    _inputs:
+      message:
+        comment: This comment will be shown above the input when users save changes
