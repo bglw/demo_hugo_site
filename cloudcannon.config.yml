@@ -1,3 +1,23 @@
 # CloudCannon Global Configuration
 # https://cloudcannon.com/documentation/articles/setting-global-configuration/
 
+collections_config:
+  docs:
+    name: Documentation
+    path: content/docs
+    schemas:
+      default:
+        path: schemas/doc.md
+
+_inputs:
+  advanced:
+    comment: "Infrequently used page attributes"
+    options:
+      preview:
+        text: Advanced options
+  advanced.page_class:
+    type: text
+    comment: "Extra classnames that should be added to this page"
+  advanced.hide_navigation:
+    type: checkbox
+    comment: "Don't show the header or footer on this page"
