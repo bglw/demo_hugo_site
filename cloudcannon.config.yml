@@ -1,3 +1,36 @@
 # CloudCannon Global Configuration
 # https://cloudcannon.com/documentation/articles/setting-global-configuration/
 
+collections_config:
+  docs:
+    name: Documentation
+    path: content/docs
+    schemas:
+      default:
+        path: schemas/doc.md
+
+_structures:
+  advanced_fields:
+    values:
+      - id: page_class_option
+        label: Custom Page Class
+        value: ""
+      - id: hide_navigation_option
+        label: Hide Navigation
+        value: false
+
+_inputs:
+  advanced:
+    type: object
+    options:
+      subtype: mutable # editors are allowed to add keys to this object
+      entries:
+        structures: _structures.advanced_fields # any entries added to this object must match one of these structures
+        allowed_keys: # only these keys can be added to this object
+          - page_class
+          - hide_navigation
+        assigned_structures: # depending on the key selected, only some structure IDs can be chosen
+          page_class:
+            - page_class_option
+          hide_navigation:
+            - hide_navigation_option
