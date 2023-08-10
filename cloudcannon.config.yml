@@ -1,3 +1,30 @@
 # CloudCannon Global Configuration
 # https://cloudcannon.com/documentation/articles/setting-global-configuration/
 
+collections_config:
+  docs:
+    name: Documentation
+    path: content/docs
+    schemas:
+      default:
+        path: schemas/doc.md
+        _inputs:
+          $: # configure the root object (i.e. the front matter as a whole)
+            type: object
+            options:
+              place_groups_below: true # show our advanced group below the main fields, instead of above
+              groups:
+                - heading: Advanced
+                  comment: Infrequently used page attributes
+                  collapsed: true
+                  inputs:
+                    - page_class
+                    - hide_navigation
+
+_inputs:
+  page_class:
+    type: text
+    comment: "Extra classnames that should be added to this page"
+  hide_navigation:
+    type: checkbox
+    comment: "Don't show the header or footer on this page"
